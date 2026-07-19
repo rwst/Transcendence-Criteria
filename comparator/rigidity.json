@@ -1,0 +1,13 @@
+{
+    "challenge_module": "Challenge",
+    "solution_module": "Solution",
+    "theorem_names": [
+        "RB.isRepetition_iff_dvd",
+        "RB.complexity_eq_ncard_residues",
+        "RB.not_eventually_periodic",
+        "RB.closed_form",
+        "NKR.thm13i_unrepaired_false"
+    ],
+    "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+    "enable_nanoda": false
+}

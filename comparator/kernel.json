@@ -1,0 +1,14 @@
+{
+    "challenge_module": "Challenge",
+    "solution_module": "Solution",
+    "theorem_names": [
+        "RB.scaledViolators_finite",
+        "RB.superlinear_of_K_rat",
+        "RB.superlinear_or_K_irrational"
+    ],
+    "permitted_axioms": [
+        "propext", "Quot.sound", "Classical.choice",
+        "Subspace.evertseSchlickewei"
+    ],
+    "enable_nanoda": false
+}

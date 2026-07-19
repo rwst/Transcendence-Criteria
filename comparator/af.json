@@ -1,0 +1,13 @@
+{
+    "challenge_module": "Challenge",
+    "solution_module": "Solution",
+    "theorem_names": [
+        "RB.not_automatic_of_K_algebraic_irrational",
+        "RB.transcendental_of_automatic_of_irrational"
+    ],
+    "permitted_axioms": [
+        "propext", "Quot.sound", "Classical.choice",
+        "AF.transcendental_or_rat_of_automatic"
+    ],
+    "enable_nanoda": false
+}

@@ -1,0 +1,14 @@
+{
+    "challenge_module": "Challenge",
+    "solution_module": "Solution",
+    "theorem_names": [
+        "RB.superlinear_of_K_algebraic_of_pairBranch",
+        "RB.closeRepetitions_finite_of_K_algebraic"
+    ],
+    "permitted_axioms": [
+        "propext", "Quot.sound", "Classical.choice",
+        "CZ.pseudoPisot_approx_alg",
+        "Subspace.evertseSchlickewei"
+    ],
+    "enable_nanoda": false
+}

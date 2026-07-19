@@ -1,0 +1,12 @@
+{
+    "challenge_module": "Challenge",
+    "solution_module": "Solution",
+    "theorem_names": [
+        "RB.algGapBounded_slice_finite"
+    ],
+    "permitted_axioms": [
+        "propext", "Quot.sound", "Classical.choice",
+        "CZ.pseudoPisot_approx_alg"
+    ],
+    "enable_nanoda": false
+}
