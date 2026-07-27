@@ -1,0 +1,1 @@
+See https://www.researchgate.net/publication/410864178_Transcendence_Criteria_for_the_Minimal_Word_of_the_Rational_Base_32
