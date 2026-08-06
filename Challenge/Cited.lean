@@ -88,28 +88,6 @@ axiom evertseSchlickewei {n : ℕ} (hn : 2 ≤ n)
 
 end Subspace
 
-/-! ## The Mahler-method alternative (cited axiom [AF17]) -/
-
-namespace AF
-
-/-- **[AF17] Corollaire 1.8**, in the specialization the development consumes: for an
-automatic sequence `a` with bounded values and a rational `α` with `0 < |α| < 1`, the value
-`f(α) = ∑ⱼ aⱼαʲ` is **either transcendental over `ℚ`, or rational**.
-
-This is Adamczewski–Faverjon's own named case — Cobham's 1968 conjecture — with `k = ℚ`
-forced by `α ∈ ℚ` and `a j ∈ ℕ ⊂ ℚ`.
-
-**Cited axiom [AF17].**  Both disjuncts are real: the rational branch cannot be removed
-(the paper's §8.1 exhibits a `{0,1}`-valued 3-automatic sequence realizing it), so this is
-applied only where both branches die at once. -/
-axiom transcendental_or_rat_of_automatic {a : ℕ → ℕ} {B : ℕ}
-    (hbdd : ∀ j, a j ≤ B) (hauto : AS.IsAutomatic a)
-    {α : ℚ} (hα0 : α ≠ 0) (hα1 : |α| < 1) :
-    Transcendental ℚ (∑' j, (a j : ℝ) * (α : ℝ) ^ j) ∨
-      ∃ r : ℚ, ∑' j, (a j : ℝ) * (α : ℝ) ^ j = (r : ℝ)
-
-end AF
-
 /-! ## Corvaja–Zannier: heights, values, pseudo-Pisot, and the algebraic-`δ` axiom -/
 
 namespace CZ

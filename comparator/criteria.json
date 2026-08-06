@@ -6,8 +6,11 @@
         "RB.transcendental_of_automatic"
     ],
     "permitted_axioms": [
-        "propext", "Quot.sound", "Classical.choice",
-        "AF.transcendental_or_rat_of_automatic",
+        "propext",
+        "Quot.sound",
+        "Classical.choice",
+        "AF.lemme_2_2",
+        "AF.lemma_2_8",
         "Subspace.evertseSchlickewei"
     ],
     "enable_nanoda": false

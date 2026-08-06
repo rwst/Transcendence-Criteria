@@ -22,7 +22,8 @@ modules it imports:
 | Module | Contents | Mirrors |
 | --- | --- | --- |
 | `Challenge/Orbit.lean` | `distToNearestInt`, `factor`, `RB.x`, `RB.wmin`, `RB.K`, `RB.IsRepetition` | `ForMathlib/`, `RB/Basic.lean` |
-| `Challenge/Cited.lean` | `AS.*`, `Subspace.*`, and the axioms [Sch91], [AF17], [CZ04] | `CITED/` |
+| `Challenge/Cited.lean` | `AS.*`, `Subspace.*`, and the axioms [Sch91], [CZ04] | `CITED/` |
+| `Challenge/AF.lean` (+ `Challenge/AF/`) | the Mahler-method definitions and the axioms [AF17], [AF22] | `CITED/AdamczewskiFaverjon*.lean` |
 | `Challenge/NKR.lean` | `NKR.uval` and the refutation of the unrepaired NKR Thm 1.3(i) | `CITED/NairKumarRout.lean` |
 | `Challenge/Kernel.lean` | the violator sets and all fifteen certified theorems | `RB/` |
 
@@ -41,16 +42,22 @@ regresses. "std3" abbreviates `propext`, `Quot.sound`, `Classical.choice`.
 | Config | Theorems | Permitted axioms |
 | --- | --- | --- |
 | `rigidity.json` | `RB.isRepetition_iff_dvd`, `RB.complexity_eq_ncard_residues`, `RB.not_eventually_periodic`, `RB.closed_form`, `NKR.thm13i_unrepaired_false` | std3 |
-| `af.json` | `RB.not_automatic_of_K_algebraic_irrational`, `RB.transcendental_of_automatic_of_irrational` | std3 + `AF.transcendental_or_rat_of_automatic` |
+| `af.json` | `RB.not_automatic_of_K_algebraic_irrational`, `RB.transcendental_of_automatic_of_irrational` | std3 + `AF.lemme_2_2` + `AF.lemma_2_8` |
 | `kernel.json` | `RB.scaledViolators_finite`, `RB.superlinear_of_K_rat`, `RB.superlinear_or_K_irrational` (**Theorem B**) | std3 + `Subspace.evertseSchlickewei` |
 | `criteria.json` | `RB.not_automatic_of_K_algebraic`, `RB.transcendental_of_automatic` (**Theorem A**) | std3 + AF + Subspace |
 | `algslice.json` | `RB.algGapBounded_slice_finite` | std3 + `CZ.pseudoPisot_approx_alg` |
 | `algebraic.json` | `RB.superlinear_of_K_algebraic_of_pairBranch`, `RB.closeRepetitions_finite_of_K_algebraic` | std3 + CZ + Subspace |
 
 So `criteria.json` certifies the paper's target — *if the minimal word of `xₙ₊₁ = ⌈3xₙ/2⌉`
-is automatic then `K(x₀)` is transcendental* — resting on the Subspace Theorem and the
-Adamczewski–Faverjon alternative and *nothing else*: no `sorry`, no third axiom, no open
-hypothesis. The other five keep the finer claims honest, in particular:
+is automatic then `K(x₀)` is transcendental* — resting on the Subspace Theorem and the two
+Mahler-method lemmas and *nothing else*: no `sorry`, no further axiom, no open hypothesis.
+
+"AF" in the table above means `AF.lemme_2_2` + `AF.lemma_2_8`, the two lemmas of [AF22]'s
+proof of Nishioka's theorem that the development does not reprove. It used to mean the single
+axiom `AF.transcendental_or_rat_of_automatic` ([AF17] Corollaire 1.8); that is now a *theorem*
+of the development, so the lane's boundary sits one layer deeper — deeper, not wider.
+
+The other five keep the finer claims honest, in particular:
 
 * `rigidity.json` certifies that 2-adic rigidity, aperiodicity, the Odlyzko–Wilf closed
   form and the machine-checked refutation of the unrepaired NKR Theorem 1.3(i) lean on no

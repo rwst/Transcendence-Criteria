@@ -177,7 +177,7 @@ theorem germEval_detX {pt : ℕ → K} (hpt : Function.Injective pt) (Yval : ℕ
   set M : Matrix ι ι (ℕ → K) := Matrix.of fun i j n => Yval n (i, j) with hM
   have hmap : (matX K ι).map (germEval hpt Yval) = M.map (Germ.coeRingHom (atTop : Filter ℕ)) := by
     ext i j
-    simp [matX, hM, germEval, Germ.coeRingHom]
+    simp [matX, hM, germEval, Germ.coe_coeRingHom]
   have hdet : M.det = fun n => (Matrix.of fun i j => Yval n (i, j) : Matrix ι ι K).det := by
     funext n
     have h : (M.map (Pi.evalRingHom (fun _ : ℕ => K) n)).det = M.det n :=
@@ -297,12 +297,12 @@ noncomputable def substPowRat (K : Type*) [Field K] {n : ℕ} (hn : 0 < n) :
     RatFunc K →+* RatFunc K :=
   IsLocalization.lift (M := (K[X])⁰) (S := RatFunc K)
     (g := (algebraMap K[X] (RatFunc K)).comp (substPow K n))
-    (fun y => by
-      refine isUnit_iff_ne_zero.2 ?_
-      simp only [RingHom.coe_comp, Function.comp_apply, ne_eq]
-      intro h
-      refine substPow_ne_zero hn (nonZeroDivisors.ne_zero y.2) ?_
-      exact RatFunc.algebraMap_injective K (by simpa using h))
+    -- Term-mode on purpose: this proof is part of the *definition*, so `Challenge/AF.lean` has
+    -- to reproduce it constant for constant, and `simp`/`simpa` do not elaborate to the same
+    -- term under `import Mathlib` as they do here.
+    (fun y => isUnit_iff_ne_zero.2 fun h =>
+      substPow_ne_zero hn (nonZeroDivisors.ne_zero y.2)
+        (RatFunc.algebraMap_injective K (h.trans (map_zero _).symm)))
 
 theorem substPowRat_algebraMap {n : ℕ} (hn : 0 < n) (p : K[X]) :
     substPowRat K hn (algebraMap K[X] (RatFunc K) p) =

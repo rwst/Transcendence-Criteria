@@ -5,6 +5,7 @@ See https://creativecommons.org/publicdomain/zero/1.0/
 -/
 import Challenge.Orbit
 import Challenge.Cited
+import Challenge.AF
 import Challenge.NKR
 import Challenge.Kernel
 
@@ -33,7 +34,8 @@ if the definitions say what you think they say, comparator has verified the rest
 | Module | Contents | Mirrors |
 | --- | --- | --- |
 | `Challenge.Orbit` | `distToNearestInt`, `factor`, `RB.x`, `RB.wmin`, `RB.K`, `RB.IsRepetition` | `ForMathlib/`, `RB/Basic.lean` |
-| `Challenge.Cited` | `AS.*`, `Subspace.*`, and the axioms [Sch91], [AF17], [CZ04] | `CITED/` |
+| `Challenge.Cited` | `AS.*`, `Subspace.*`, and the axioms [Sch91], [CZ04] | `CITED/` |
+| `Challenge.AF` | the Mahler-method definitions and the axioms [AF17], [AF22] | `CITED/AdamczewskiFaverjon*.lean` |
 | `Challenge.NKR` | `NKR.uval` and the refutation of the unrepaired NKR Thm 1.3(i) | `CITED/NairKumarRout.lean` |
 | `Challenge.Kernel` | the violator sets and all fifteen certified theorems | `RB/` |
 
@@ -52,7 +54,7 @@ theorem can never quietly acquire an axiom it is claimed not to use.  "std3" abb
 | Config | Lane | Permitted axioms |
 | --- | --- | --- |
 | `rigidity.json` | 2-adic rigidity, aperiodicity, closed form, the NKR refutation | std3 |
-| `af.json` | the algebraic *irrational* half | std3 + `AF.transcendental_or_rat_of_automatic` |
+| `af.json` | the algebraic *irrational* half | std3 + `AF.lemme_2_2` + `AF.lemma_2_8` |
 | `kernel.json` | the Diophantine kernel and the dichotomy (Theorem B) | std3 + `Subspace.evertseSchlickewei` |
 | `criteria.json` | **Theorem A**, the transcendence criterion | std3 + AF + Subspace |
 | `algslice.json` | the algebraic-multiplier bounded-gap kernel | std3 + `CZ.pseudoPisot_approx_alg` |
@@ -60,9 +62,14 @@ theorem can never quietly acquire an axiom it is claimed not to use.  "std3" abb
 
 Note that permitting an axiom by name is *not* a loophole: comparator compares the types of
 permitted axioms across the two environments too, so the solution cannot smuggle in an
-`AF.transcendental_or_rat_of_automatic : False`.  The three cited axioms are therefore
-declared in `Challenge/Cited.lean`, verbatim, so that a reader sees exactly what is taken
-on faith.
+`AF.lemme_2_2 : False`.  The four cited axioms are therefore declared verbatim — [Sch91] and
+[CZ04] in `Challenge/Cited.lean`, [AF17] Lemme 2.2 and [AF22] Lemme 2.8 in
+`Challenge/AF.lean` — so that a reader sees exactly what is taken on faith.
+
+The AF lane's boundary moved once: [AF17] Corollaire 1.8 used to be the axiom, and is now a
+*theorem* of the development, proved along [AF22]'s new proof of Nishioka's theorem from the
+two lemmas of that proof which the development does not reprove.  The lane got deeper, not
+wider — `AF.transcendental_or_rat_of_automatic` is still where the `RB/` results enter it.
 
 The stratification is enforced, not decorative: swapping `kernel.json` to std3 alone makes
 comparator report `Illegal axiom detected: 'Subspace.evertseSchlickewei'`.

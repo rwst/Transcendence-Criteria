@@ -125,8 +125,8 @@ theorem evalRingHom_comp_substFun (φ : K →+* ℂ) (n : ℕ) (z : ℂ) :
     (Pi.evalRingHom (fun _ : ℂ => ℂ) z).comp (substFun φ n)
       = (Polynomial.evalRingHom (z ^ n)).comp (Polynomial.mapRingHom φ) := by
   refine Polynomial.ringHom_ext (fun a => ?_) ?_
-  · simp [substFun, Pi.constRingHom, Pi.evalRingHom]
-  · simp [substFun, Pi.evalRingHom]
+  · simp [substFun]
+  · simp [substFun]
 
 theorem substFun_apply (φ : K →+* ℂ) (n : ℕ) (w : K[X]) (z : ℂ) :
     substFun φ n w z = (w.map φ).eval (z ^ n) := by
