@@ -64,8 +64,11 @@ updated.
 
 The lanes are still worth keeping apart — but for **axiom independence**, not refereeing:
 
-* **AF lane** (`RB.NotAutomatic`, not imported here): T1a = std3 +
-  `AF.transcendental_or_rat_of_automatic`, **no Subspace**.
+* **AF lane** (`RB.NotAutomatic`, not imported here): T1a = std3 + `AF.lemme_2_2` +
+  `AF.lemma_2_8`,
+  **no Subspace**.  (Until 2026-08-04 the AF-lane axiom was
+  `AF.transcendental_or_rat_of_automatic`; plan-formalize-AF17's WP5 made that a theorem, and the
+  lane now stops at [AF17] Thm 1.4.)
 * **Subspace lane** (this file): `superlinear_of_K_rat`, `superlinear_of_K_notIrrational`,
   `superlinear_or_K_irrational` = std3 + `Subspace.evertseSchlickewei`, **no AF**.
 * **The composition**: only `not_automatic_of_K_algebraic` and `transcendental_of_automatic`
@@ -236,7 +239,7 @@ Honest scope ([B1E2] §2.2, [B2A2] R1): `K` is *expected transcendental*, so the
 plausibly vacuous, and this is **not** a solution to report-dubickas B.1 — the generic
 transcendental case is untouched.  Its value is `transcendental_of_automatic` below.
 
-Footprint: std3 + `AF.transcendental_or_rat_of_automatic` + `Subspace.evertseSchlickewei` —
+Footprint: std3 + `AF.lemme_2_2` + `AF.lemma_2_8` + `Subspace.evertseSchlickewei` —
 **both refereed** (see the module doc: [B1E2] T1b's "preprint lane" label predates the
 2026-07-14 one-axiom refactor and no longer applies).  This is the one theorem in the program
 that carries both axioms — it *is* the composition. -/
